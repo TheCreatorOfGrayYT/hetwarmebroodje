@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>'t Warm Broodje Limburg</title>
+    <title>'t Warm Broodje Limburg - Officieel Restaurant</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,46 +11,120 @@
             padding: 0;
             background-color: #fcf8f2;
             color: #333;
+            scroll-behavior: smooth;
         }
+        
+        /* Navigatiebalk */
+        nav {
+            background-color: #333;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            color: #ff9f43;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li { margin-left: 20px; }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover { color: #ff9f43; }
+
+        /* Hero Header */
         header {
-            background: linear-gradient(135deg, #ff9f43, #ee5253);
+            background: linear-gradient(135deg, rgba(255, 159, 67, 0.9), rgba(238, 82, 83, 0.9)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 80px 20px;
         }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 10px 0 0 0; font-style: italic; font-size: 1.2em; }
+        header h1 { margin: 0; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { margin: 15px 0 0 0; font-style: italic; font-size: 1.4em; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
         
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
         
-        .languages { text-align: center; margin-bottom: 30px; }
+        /* Language Selector Sectie */
+        .lang-section {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .lang-section h3 { margin: 0 0 10px 0; color: #555; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
         .languages span { 
-            font-size: 2em; margin: 0 10px; cursor: pointer; transition: transform 0.2s; display: inline-block;
+            font-size: 2.2em; margin: 0 12px; cursor: pointer; transition: transform 0.2s; display: inline-block;
         }
         .languages span:hover { transform: scale(1.3); }
         .languages span.active { border-bottom: 3px solid #ee5253; }
 
+        /* Algemene Secties */
         .section { 
-            background: white; padding: 20px; margin-bottom: 20px; 
+            background: white; padding: 30px; margin-bottom: 30px; 
             border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
         }
-        h2 { color: #ee5253; border-bottom: 2px solid #fcf8f2; padding-bottom: 10px; }
+        h2 { color: #ee5253; border-bottom: 2px solid #fcf8f2; padding-bottom: 10px; margin-top: 0; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media(max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
         
+        /* Badges & Menukaart */
         .feature-badge { 
             background: #10ac84; color: white; padding: 5px 10px; 
             border-radius: 4px; font-weight: bold; display: inline-block; margin-right: 10px;
         }
-        .price-badge { background: #5f27cd; color: white; padding: 2px 8px; border-radius: 4px; float: right; font-size: 0.9em; }
+        .price-badge { background: #5f27cd; color: white; padding: 4px 10px; border-radius: 4px; float: right; font-weight: bold; }
         
         ul { list-style-type: none; padding: 0; }
-        li { padding: 10px 0; border-bottom: 1px solid #eee; }
+        li { padding: 15px 0; border-bottom: 1px solid #eee; font-size: 1.1em; }
         li:last-child { border-bottom: none; }
+
+        /* Formulieren & Inputs */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1em;
+        }
+        .btn {
+            background-color: #ee5253; color: white; border: none; padding: 12px 20px; 
+            font-size: 1.1em; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: background 0.2s;
+        }
+        .btn:hover { background-color: #ff9f43; }
+
+        /* Footer */
+        footer {
+            background-color: #222; color: #aaa; text-align: center; padding: 30px 20px; margin-top: 50px; font-size: 0.9em;
+        }
+        footer strong { color: #fff; }
     </style>
 </head>
 <body>
+
+<!-- Navigatiebalk voor een echt restaurantgevoel -->
+<nav>
+    <a href="#" class="logo" id="nav-logo">'t Warm Broodje</a>
+    <ul>
+        <li><a href="#menu" id="nav-menu-link">Menu</a></li>
+        <li><a href="#reserve" id="nav-reserve-link">Reserveren</a></li>
+        <li><a href="#about" id="nav-about-link">Over Ons</a></li>
+    </ul>
+</nav>
 
 <header>
     <h1 id="main-title">'t Warm Broodje Limburg</h1>
@@ -59,41 +133,24 @@
 
 <div class="container">
 
-    <!-- GEFIXT: Alle vlaggen roepen nu direct de juiste taalfunctie aan (geen Under Construction meldingen meer!) -->
-    <div class="languages">
-        <span onclick="changeLanguage('nl')" title="Nederlands" class="active">🇳🇱</span>
-        <span onclick="changeLanguage('be')" title="België (Vlaams)">🇧🇪</span>
-        <span onclick="changeLanguage('de')" title="Deutsch">🇩🇪</span>
-        <span onclick="changeLanguage('at')" title="Österreich">🇦🇹</span>
-        <span onclick="changeLanguage('en')" title="English">🇬🇧</span>
-        <span onclick="changeLanguage('fr')" title="Français">🇫🇷</span>
-        <span onclick="changeLanguage('lu')" title="Lëtzebuergesch">🇱🇺</span>
-        <span onclick="changeLanguage('pl')" title="Polski">🇵🇱</span>
-        <span onclick="changeLanguage('ru')" title="Русский">🇷🇺</span>
-    </div>
-
-    <div class="grid">
-        <!-- Tech features -->
-        <div class="section">
-            <h2 id="title-ict">Hypermoderne ICT Services</h2>
-            <ul>
-                <li><span class="feature-badge">HOTSPOT</span> <span id="text-wifi"><strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.</span></li>
-                <li><span class="feature-badge">KIDS ZONE</span> <span id="text-minecraft"><strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!</span></li>
-            </ul>
-        </div>
-
-        <!-- Tanken & Supermarkt -->
-        <div class="section">
-            <h2 id="title-borders">Grens-Voordelen</h2>
-            <ul>
-                <li>🚀 <span id="text-kaufland"><strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!</span></li>
-                <li>⛽ <span id="text-fuel"><strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische i Duitse brandstofprijzen.</span></li>
-            </ul>
+    <!-- GEFIXT: Talen vallen nu netjes onder de dynamische kop 'Languages' -->
+    <div class="lang-section">
+        <h3 id="lang-heading">Languages</h3>
+        <div class="languages">
+            <span onclick="changeLanguage('nl')" title="Nederlands" class="active">🇳🇱</span>
+            <span onclick="changeLanguage('be')" title="België (Vlaams)">🇧🇪</span>
+            <span onclick="changeLanguage('de')" title="Deutsch">🇩🇪</span>
+            <span onclick="changeLanguage('at')" title="Österreich">🇦🇹</span>
+            <span onclick="changeLanguage('en')" title="English">🇬🇧</span>
+            <span onclick="changeLanguage('fr')" title="Français">🇫🇷</span>
+            <span onclick="changeLanguage('lu')" title="Lëtzebuergesch">🇱🇺</span>
+            <span onclick="changeLanguage('pl')" title="Polski">🇵🇱</span>
+            <span onclick="changeLanguage('ru')" title="Русский">🇷🇺</span>
         </div>
     </div>
 
-    <!-- Menukaart -->
-    <div class="section">
+    <!-- Menukaart Sectie -->
+    <div class="section" id="menu">
         <h2 id="title-menu">Ons Internationale Assortiment</h2>
         <ul>
             <li>🥐 <span id="menu-vlaai">Echte Limburgse vlaai van Voncken & PLUS assortiment</span> <span class="price-badge" id="badge-1">Kleine Prijs!</span></li>
@@ -103,79 +160,152 @@
         </ul>
     </div>
 
+    <div class="grid">
+        <!-- Tech & Entertainment Features -->
+        <div class="section">
+            <h2 id="title-ict">Hypermoderne ICT Services</h2>
+            <ul>
+                <li><span class="feature-badge">HOTSPOT</span> <span id="text-wifi"><strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.</span></li>
+                <li><span class="feature-badge">KIDS ZONE</span> <span id="text-minecraft"><strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!</span></li>
+            </ul>
+        </div>
+
+        <!-- Grens-Voordelen -->
+        <div class="section">
+            <h2 id="title-borders">Grens-Voordelen</h2>
+            <ul>
+                <li>🚀 <span id="text-kaufland"><strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!</span></li>
+                <li>⛽ <span id="text-fuel"><strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- NIEUW: Interactief Reserveringsformulier -->
+        <div class="section" id="reserve">
+            <h2 id="title-reserve">Tafel Reserveren</h2>
+            <form onsubmit="alert('Reservering succesvol ontvangen!'); return false;">
+                <div class="form-group">
+                    <label id="lbl-name" for="name">Naam:</label>
+                    <input type="text" id="name" required placeholder="Anakin">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-guests" for="guests">Aantal personen:</label>
+                    <select id="guests">
+                        <option>1 persoon</option>
+                        <option selected>2 personen</option>
+                        <option>4 personen</option>
+                        <option>Meer dan 4 personen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-date" for="date">Datum & Tijd:</label>
+                    <input type="datetime-local" id="date" required>
+                </div>
+                <button type="submit" class="btn" id="btn-submit">Nu Reserveren</button>
+            </form>
+        </div>
+
+        <!-- NIEUW: Openingstijden & Locatie -->
+        <div class="section" id="about">
+            <h2 id="title-about">Openingstijden & Contact</h2>
+            <ul>
+                <li>🕒 <strong id="time-days">Maandag t/m Zondag:</strong> 08:00 - 22:00</li>
+                <li>📍 <strong>Regio:</strong> Heerlen / Roermond, Limburg</li>
+                <li>📞 <strong>Tel:</strong> +31 (0)45 123 4567</li>
+                <li>💻 <strong>ICT Support:</strong> Powered by Techno Enterprises</li>
+            </ul>
+        </div>
+    </div>
+
 </div>
+
+<!-- Professionele Footer -->
+<footer>
+    <p>&copy; 2026 <strong>'t Warm Broodje Limburg</strong>. All rights reserved.</p>
+    <p>Technical Infrastructure & Cybersecurity by <strong>Techno Enterprises Corp Holland</strong>.</p>
+</footer>
 
 <script>
 const translations = {
     nl: {
-        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een kleine prijs!"',
+        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een kleine prijs!"', langheading: "Talen / Languages",
         ict: "Hypermoderne ICT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.", minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
         borders: "Grens-Voordelen", kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!", fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
         menu: "Ons Internationale Assortiment", vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment", frikandel: "Warme Frikandelbroodjes & Kaiserbroodjes", borscht: "Huisgemaakte traditionele Poolse & Russische Borscht", vodka: "Premium Vodka en internationale dranken/snacks",
-        b1: "Kleine Prijs!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!"
+        b1: "Kleine Prijs!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!",
+        reserve: "Tafel Reserveren", name: "Naam:", guests: "Aantal personen:", date: "Datum & Tijd:", btn: "Nu Reserveren", about: "Openingstijden & Contact", days: "Maandag t/m Zondag:"
     },
     be: {
-        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een zacht prijsje!"',
+        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een zacht prijsje!"', langheading: "Talen / Langues",
         ict: "Hypermoderne ICT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.", minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
         borders: "Grens-Voordelen", kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!", fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
         menu: "Ons Internationaal Assortiment", vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment", frikandel: "Warme Frikandelkoeken & Kaiserbroodjes", borscht: "Huisgemaakte traditionele Poolse & Russische Borscht", vodka: "Premium Vodka en internationale dranken/snacks",
-        b1: "Zacht Prijsje!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!"
+        b1: "Zacht Prijsje!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!",
+        reserve: "Tafel Reserveren", name: "Naam:", guests: "Aantal personen:", date: "Datum & Tijd:", btn: "Nu Reserveren", about: "Openingsuren & Contact", days: "Maandag tot Zondag:"
     },
     de: {
-        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"',
+        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"', langheading: "Sprachen / Languages",
         ict: "Hypermoderne IT-Dienstleistungen", wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.", minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher Minecraft Survival!",
         borders: "Grenzvorteile", kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!", fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
         menu: "Unser internationales Sortiment", vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment", frikandel: "Warme Frikandel-Brötchen & Kaiserbrötchen", borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch", vodka: "Premium-Wodka und internationale Getränke/Snacks",
-        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!"
+        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!",
+        reserve: "Tisch Reservieren", name: "Name:", guests: "Anzahl der Personen:", date: "Datum & Uhrzeit:", btn: "Jetzt Reservieren", about: "Öffnungszeiten & Kontakt", days: "Montag bis Sonntag:"
     },
     at: {
-        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"',
+        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"', langheading: "Sprachen",
         ict: "Hypermoderne IT-Dienstleistungen", wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.", minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher und gmiatlich Minecraft Survival!",
         borders: "Grenzvorteile", kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!", fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
         menu: "Unser internationales Sortiment", vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment", frikandel: "Warme Frikandel-Brötchen & Kaisersemmeln", borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch", vodka: "Premium-Wodka und internationale Getränke/Snacks",
-        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!"
+        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!",
+        reserve: "Tisch Reservieren", name: "Name:", guests: "Personenanzahl:", date: "Datum & Uhrzeit:", btn: "Jetzt Reservieren", about: "Öffnungszeiten & Kontakt", days: "Montag bis Sonntag:"
     },
     en: {
-        title: "The Warm Roll Limburg", subtitle: '"Great service for a small price!"',
+        title: "The Warm Roll Limburg", subtitle: '"Great service for a small price!"', langheading: "Languages",
         ict: "Hypermodern IT Services", wifi: "<strong>Free 5 Gbps Wi-Fi</strong> - Superfast internet for all our guests.", minecraft: "<strong>Mini-Laptops</strong> - Kids can safely play Minecraft Survival here!",
         borders: "Border Advantages", kaufland: "<strong>Kaufland Prices</strong> - The cheapest groceries in the region with the coziness of Jan Linders!", fuel: "<strong>Fuel Blast</strong> - Gas station with the lowest Belgian and German fuel prices.",
         menu: "Our International Assortment", vlaai: "Authentic Limburg vlaai from Voncken & PLUS assortment", frikandel: "Warm Frikandel rolls & Kaiser rolls", borscht: "Homemade traditional Polish & Russian Borscht", vodka: "Premium Vodka and international drinks/snacks",
-        b1: "Small Price!", b2: "Kaufland Price!", b3: "Low Price!", b4: "German Price!"
+        b1: "Small Price!", b2: "Kaufland Price!", b3: "Low Price!", b4: "German Price!",
+        reserve: "Book a Table", name: "Name:", guests: "Number of guests:", date: "Date & Time:", btn: "Book Now", about: "Opening Hours & Contact", days: "Monday to Sunday:"
     },
     fr: {
-        title: "Le Petit Pain Chaud Limbourg", subtitle: '"Bon service pour un petit prix !"',
+        title: "Le Petit Pain Chaud Limbourg", subtitle: '"Bon service pour un petit prix !"', langheading: "Langues / Languages",
         ict: "Services informatiques hypermodernes", wifi: "<strong>Wi-Fi gratuit à 5 Gbps</strong> - Internet ultra-rapide pour tous nos clients.", minecraft: "<strong>Mini-Ordinateurs</strong> - Les enfants jouent ici en toute sécurité à Minecraft Survival !",
         borders: "Avantages Frontaliers", kaufland: "<strong>Prix Kaufland</strong> - Les courses les moins chères de la région avec la convivialité de Jan Linders !", fuel: "<strong>Carburant Flash</strong> - Station-service avec les prix de carburant belges et allemands les plus bas.",
         menu: "Notre Assortiment International", vlaai: "Authentique vlaai du Limbourg de Voncken & assortiment PLUS", frikandel: "Frikandelbroodjes chauds & Petits pains Kaiser", borscht: "Borscht polonais & russe traditionnel fait maison", vodka: "Vodka Premium et boissons/snacks internationaux",
-        b1: "Petit Prix !", b2: "Prix Kaufland !", b3: "Prix Bas !", b4: "Prix Allemand !"
+        b1: "Petit Prix !", b2: "Prix Kaufland !", b3: "Prix Bas !", b4: "Prix Allemand !",
+        reserve: "Réserver une Table", name: "Nom:", guests: "Nombre de personnes:", date: "Date & Heure:", btn: "Réserver Maintenant", about: "Horaires & Contact", days: "Lundi au Dimanche:"
     },
     lu: {
-        title: "Dat waarm Bréitchen Limburg", subtitle: '"Gutt Service fir e klenge Präis!"',
+        title: "Dat waarm Bréitchen Limburg", subtitle: '"Gutt Service fir e klenge Präis!"', langheading: "Sproochen",
         ict: "Hypermodern IT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Superfasten Internet fir all eis Gäscht.", minecraft: "<strong>Mini-Laptops</strong> - Kanner spillen hei sécher Minecraft Survival!",
         borders: "Grenz-Virdeeler", kaufland: "<strong>Kaufland Präisser</strong> - Déi bëllegst Liewensmëttel an der Regioun mat der Gemittlechkeet vum Jan Linders!", fuel: "<strong>Sprit-Knaller</strong> - Tankstell mat den niddregsten belsche an däitsche Spritpräisser.",
         menu: "Eist Internationalen Sortiment", vlaai: "Richtegen Limburger Vlaai vu Voncken & PLUS Sortiment", frikandel: "Warm Frikandelsbréitchen & Kaiserbréitchen", borscht: "Hausgemaachte traditionelle polneschen & russesche Borscht", vodka: "Premium Vodka an international Gedrénks/Snacks",
-        b1: "Klenge Präis!", b2: "Kaufland Präis!", b3: "Niddregen Präis!", b4: "Däitsche Präis!"
+        b1: "Klenge Präis!", b2: "Kaufland Präis!", b3: "Niddregen Präis!", b4: "Däitsche Präis!",
+        reserve: "Dësch Reservéieren", name: "Numm:", guests: "Unzuel u Persounen:", date: "Datum & Auerzäit:", btn: "Elo Reservéieren", about: "Öffnungszäiten & Kontakt", days: "Méindeg bis Sonndeg:"
     },
     pl: {
-        title: "Ciepła Bułka Limburg", subtitle: '"Dobra obsługa za niską cenę!"',
+        title: "Ciepła Bułka Limburg", subtitle: '"Dobra obsługa za niską cenę!"', langheading: "Języki / Languages",
         ict: "Hipernowoczesne Usługi IT", wifi: "<strong>Darmowe Wi-Fi 5 Gbps</strong> - Superszybki internet dla wszystkich gości.", minecraft: "<strong>Mini-Laptopy</strong> - Dzieci grają tutaj bezpiecznie w Minecraft Survival!",
         borders: "Korzyści Przygraniczne", kaufland: "<strong>Ceny z Kauflandu</strong> - Najtańsze zakupy w regionie w przytulnej atmosferze Jan Linders!", fuel: "<strong>Paliwowy Hit</strong> - Stacja benzynowa z najniższymi cenami paliw w Belgii i Niemczech.",
         menu: "Nasza Międzynarodowa Oferta", vlaai: "Oryginalny limburgijski placek (vlaai) od Voncken i asortyment PLUS", frikandel: "Ciepłe Frikandelbroodjes i Kajzerki", borscht: "Domowy, tradycyjny Barszcz polski i rosyjski", vodka: "Wódka Premium oraz międzynarodowe napoje i przekąski",
-        b1: "Niska Cena!", b2: "Cena z Kauflandu!", b3: "Niska Cena!", b4: "Niemiecka Cena!"
+        b1: "Niska Cena!", b2: "Cena z Kauflandu!", b3: "Niska Cena!", b4: "Niemiecka Cena!",
+        reserve: "Rezerwacja Stolika", name: "Imię:", guests: "Liczba osób:", date: "Data i Godzina:", btn: "Zarezerwuj Teraz", about: "Godziny Otwarcia & Kontakt", days: "Poniedziałek do Niedzieli:"
     },
     ru: {
-        title: "Тёплая Булочка Лимбург", subtitle: '"Отличный сервис по низкой цене!"',
+        title: "Тёплая Булочка Лимбург", subtitle: '"Отличный сервис по низкой цене!"', langheading: "Языки / Languages",
         ict: "Сверхсовременные ИТ-услуги", wifi: "<strong>Бесплатный Wi-Fi 5 Гбит/с</strong> - Сверхскоростной интернет для всех гостей.", minecraft: "<strong>Мини-ноутбуки</strong> - Дети могут безопасно играть в Minecraft Survival!",
         borders: "Приграничные Выгоды", kaufland: "<strong>Цены как в Kaufland</strong> - Самые дешёвые продукты в регионе с уютом Jan Linders!", fuel: "<strong>Топливный Бум</strong> - Заправка с самыми низкими ценами на бельгийское и немецкое топливо.",
         menu: "Наш Международный Ассортимент", vlaai: "Настоящий лимбургский пирог от Voncken и ассортимент PLUS", frikandel: "Горячие слойки с сосиской (фрикандел) и кайзеровские булочки", borscht: "Домашний традиционный польский и русский Борщ", vodka: "Премиальная Водка и международные напитки/закуски",
-        b1: "Низкая Цена!", b2: "Цена как в Kaufland!", b3: "Низкая Цена!", b4: "Немецкая Цена!"
+        b1: "Низкая Цена!", b2: "Цена как в Kaufland!", b3: "Низкая Цена!", b4: "Немецкая Цена!",
+        reserve: "Забронировать Столик", name: "Имя:", guests: "Количество гостей:", date: "Дата и Время:", btn: "Забронировать", about: "Время Работы & Контакты", days: "Понедельник — Воскресенье:"
     }
 };
 
-// GEFIXT: Deze functie zoekt nu direct op de taalkoppeling in de HTML-knop, wat altijd werkt
 function changeLanguage(lang) {
     document.getElementById('main-title').innerText = translations[lang].title;
     document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
+    document.getElementById('lang-heading').innerText = translations[lang].langheading;
     document.getElementById('title-ict').innerText = translations[lang].ict;
     document.getElementById('text-wifi').innerHTML = translations[lang].wifi;
     document.getElementById('text-minecraft').innerHTML = translations[lang].minecraft;
@@ -191,6 +321,15 @@ function changeLanguage(lang) {
     document.getElementById('badge-2').innerText = translations[lang].b2;
     document.getElementById('badge-3').innerText = translations[lang].b3;
     document.getElementById('badge-4').innerText = translations[lang].b4;
+    
+    // Nieuwe restaurant-vertalingen doorvoeren
+    document.getElementById('title-reserve').innerText = translations[lang].reserve;
+    document.getElementById('lbl-name').innerText = translations[lang].name;
+    document.getElementById('lbl-guests').innerText = translations[lang].guests;
+    document.getElementById('lbl-date').innerText = translations[lang].date;
+    document.getElementById('btn-submit').innerText = translations[lang].btn;
+    document.getElementById('title-about').innerText = translations[lang].about;
+    document.getElementById('time-days').innerText = translations[lang].days;
 
     const flags = document.querySelectorAll('.languages span');
     flags.forEach(f => {

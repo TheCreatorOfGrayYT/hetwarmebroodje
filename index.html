@@ -25,9 +25,10 @@
         
         .languages { text-align: center; margin-bottom: 30px; }
         .languages span { 
-            font-size: 1.5em; margin: 0 8px; cursor: pointer; transition: transform 0.2s; display: inline-block;
+            font-size: 2em; margin: 0 10px; cursor: pointer; transition: transform 0.2s; display: inline-block;
         }
         .languages span:hover { transform: scale(1.3); }
+        .languages span.active { border-bottom: 3px solid #ee5253; }
 
         .section { 
             background: white; padding: 20px; margin-bottom: 20px; 
@@ -52,53 +53,137 @@
 <body>
 
 <header>
-    <h1>'t Warm Broodje Limburg</h1>
-    <p>"Goede service voor een kleine prijs!"</p>
+    <h1 id="main-title">'t Warm Broodje Limburg</h1>
+    <p id="main-subtitle">"Goede service voor een kleine prijs!"</p>
 </header>
 
 <div class="container">
 
-    <div class="languages" title="Kies uw taal / Choose your language">
-        <span title="Nederlands">🇳🇱</span>
-        <span title="Deutsch">🇩🇪</span>
-        <span title="België">🇧🇪</span>
-        <span title="English">🇬🇧</span>
-        <span title="Français">🇫🇷</span>
-        <span title="Luxembourg">🇱🇺</span>
-        <span title="Österreich">🇦🇹</span>
-        <span title="Polski">🇵🇱</span>
-        <span title="Русский">🇷🇺</span>
+    <!-- Vlaggen-selector met klik-functie -->
+    <div class="languages">
+        <span onclick="changeLanguage('nl')" title="Nederlands" class="active">🇳🇱</span>
+        <span onclick="changeLanguage('de')" title="Deutsch">🇩🇪</span>
+        <span onclick="changeLanguage('en')" title="English">🇬🇧</span>
+        <span onclick="alert('In aanbouw / Under construction')" title="België">🇧🇪</span>
+        <span onclick="alert('Under construction')" title="Français">🇫🇷</span>
+        <span onclick="alert('Under construction')" title="Luxembourg">🇱🇺</span>
+        <span onclick="alert('Under construction')" title="Österreich">🇦🇹</span>
+        <span onclick="alert('Under construction')" title="Polski">🇵🇱</span>
+        <span onclick="alert('Under construction')" title="Русский">🇷🇺</span>
     </div>
 
     <div class="grid">
+        <!-- Tech features -->
         <div class="section">
-            <h2>Hypermoderne ICT Services</h2>
+            <h2 id="title-ict">Hypermoderne ICT Services</h2>
             <ul>
-                <li><span class="feature-badge">HOTSPOT</span> <strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.</li>
-                <li><span class="feature-badge">KIDS ZONE</span> <strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!</li>
+                <li><span class="feature-badge">HOTSPOT</span> <span id="text-wifi"><strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.</span></li>
+                <li><span class="feature-badge">KIDS ZONE</span> <span id="text-minecraft"><strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!</span></li>
             </ul>
         </div>
 
+        <!-- Tanken & Supermarkt -->
         <div class="section">
-            <h2>Grens-Voordelen</h2>
+            <h2 id="title-borders">Grens-Voordelen</h2>
             <ul>
-                <li>🚀 <strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!</li>
-                <li>⛽ <strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.</li>
+                <li>🚀 <span id="text-kaufland"><strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!</span></li>
+                <li>⛽ <span id="text-fuel"><strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.</span></li>
             </ul>
         </div>
     </div>
 
+    <!-- Menukaart -->
     <div class="section">
-        <h2>Ons Internationale Assortiment</h2>
+        <h2 id="title-menu">Ons Internationale Assortiment</h2>
         <ul>
-            <li>🥐 Echte Limburgse vlaai van Voncken & PLUS assortiment <span class="price-badge">Kleine Prijs!</span></li>
-            <li>🥖 Warme Frikandelbroodjes & Kaiserbroodjes <span class="price-badge">Kaufland Prijs!</span></li>
-            <li>🥣 Huisgemaakte traditionele Poolse & Russische Borscht <span class="price-badge">Lage Prijs!</span></li>
-            <li>🥃 Premium Vodka en internationale dranken/snacks <span class="price-badge">Duitse Prijs!</span></li>
+            <li>🥐 <span id="menu-vlaai">Echte Limburgse vlaai van Voncken & PLUS assortiment</span> <span class="price-badge" id="badge-1">Kleine Prijs!</span></li>
+            <li>🥖 <span id="menu-frikandel">Warme Frikandelbroodjes & Kaiserbroodjes</span> <span class="price-badge" id="badge-2">Kaufland Prijs!</span></li>
+            <li>🥣 <span id="menu-borscht">Huisgemaakte traditionele Poolse & Russische Borscht</span> <span class="price-badge" id="badge-3">Lage Prijs!</span></li>
+            <li>🥃 <span id="menu-vodka">Premium Vodka en internationale dranken/snacks</span> <span class="price-badge" id="badge-4">Duitse Prijs!</span></li>
         </ul>
     </div>
 
 </div>
+
+<!-- Hier zit de magie die de talen echt laat werken -->
+<script>
+const translations = {
+    nl: {
+        title: "'t Warm Broodje Limburg",
+        subtitle: '"Goede service voor een kleine prijs!"',
+        ict: "Hypermoderne ICT Services",
+        wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.",
+        minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
+        borders: "Grens-Voordelen",
+        kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!",
+        fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
+        menu: "Ons Internationale Assortiment",
+        vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment",
+        frikandel: "Warme Frikandelbroodjes & Kaiserbroodjes",
+        borscht: "Huisgemaakte traditionele Poolse & Russische Borscht",
+        vodka: "Premium Vodka en internationale dranken/snacks",
+        b1: "Kleine Prijs!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!"
+    },
+    de: {
+        title: "Das warme Brötchen Limburg",
+        subtitle: '"Guter Service für einen kleinen Preis!"',
+        ict: "Hypermoderne IT-Dienstleistungen",
+        wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.",
+        minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher Minecraft Survival!",
+        borders: "Grenzvorteile",
+        kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!",
+        fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
+        menu: "Unser internationales Sortiment",
+        vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment",
+        frikandel: "Warme Frikandel-Brötchen & Kaiserbrötchen",
+        borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch",
+        vodka: "Premium-Wodka und internationale Getränke/Snacks",
+        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!"
+    },
+    en: {
+        title: "The Warm Roll Limburg",
+        subtitle: '"Great service for a small price!"',
+        ict: "Hypermodern IT Services",
+        wifi: "<strong>Free 5 Gbps Wi-Fi</strong> - Superfast internet for all our guests.",
+        minecraft: "<strong>Mini-Laptops</strong> - Kids can safely play Minecraft Survival here!",
+        borders: "Border Advantages",
+        kaufland: "<strong>Kaufland Prices</strong> - The cheapest groceries in the region with the coziness of Jan Linders!",
+        fuel: "<strong>Fuel Blast</strong> - Gas station with the lowest Belgian and German fuel prices.",
+        menu: "Our International Assortment",
+        vlaai: "Authentic Limburg vlaai from Voncken & PLUS assortment",
+        frikandel: "Warm Frikandel rolls & Kaiser rolls",
+        borscht: "Homemade traditional Polish & Russian Borscht",
+        vodka: "Premium Vodka and international drinks/snacks",
+        b1: "Small Price!", b2: "Kaufland Price!", b3: "Low Price!", b4: "German Price!"
+    }
+};
+
+function changeLanguage(lang) {
+    // Verander de teksten op de pagina
+    document.getElementById('main-title').innerText = translations[lang].title;
+    document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
+    document.getElementById('title-ict').innerText = translations[lang].ict;
+    document.getElementById('text-wifi').innerHTML = translations[lang].wifi;
+    document.getElementById('text-minecraft').innerHTML = translations[lang].minecraft;
+    document.getElementById('title-borders').innerText = translations[lang].borders;
+    document.getElementById('text-kaufland').innerHTML = translations[lang].kaufland;
+    document.getElementById('text-fuel').innerHTML = translations[lang].fuel;
+    document.getElementById('title-menu').innerText = translations[lang].menu;
+    document.getElementById('menu-vlaai').innerText = translations[lang].vlaai;
+    document.getElementById('menu-frikandel').innerText = translations[lang].frikandel;
+    document.getElementById('menu-borscht').innerText = translations[lang].borscht;
+    document.getElementById('menu-vodka').innerText = translations[lang].vodka;
+    document.getElementById('badge-1').innerText = translations[lang].b1;
+    document.getElementById('badge-2').innerText = translations[lang].b2;
+    document.getElementById('badge-3').innerText = translations[lang].b3;
+    document.getElementById('badge-4').innerText = translations[lang].b4;
+
+    // Voeg het actieve streepje onder de geselecteerde vlag toe
+    const flags = document.querySelectorAll('.languages span');
+    flags.forEach(f => f.classList.remove('active'));
+    event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>

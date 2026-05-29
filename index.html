@@ -59,17 +59,17 @@
 
 <div class="container">
 
-    <!-- Vlaggen-selector met klik-functie -->
+    <!-- GEFIXT: Alle vlaggen roepen nu direct de juiste taalfunctie aan (geen Under Construction meldingen meer!) -->
     <div class="languages">
         <span onclick="changeLanguage('nl')" title="Nederlands" class="active">🇳🇱</span>
+        <span onclick="changeLanguage('be')" title="België (Vlaams)">🇧🇪</span>
         <span onclick="changeLanguage('de')" title="Deutsch">🇩🇪</span>
+        <span onclick="changeLanguage('at')" title="Österreich">🇦🇹</span>
         <span onclick="changeLanguage('en')" title="English">🇬🇧</span>
-        <span onclick="alert('In aanbouw / Under construction')" title="België">🇧🇪</span>
-        <span onclick="alert('Under construction')" title="Français">🇫🇷</span>
-        <span onclick="alert('Under construction')" title="Luxembourg">🇱🇺</span>
-        <span onclick="alert('Under construction')" title="Österreich">🇦🇹</span>
-        <span onclick="alert('Under construction')" title="Polski">🇵🇱</span>
-        <span onclick="alert('Under construction')" title="Русский">🇷🇺</span>
+        <span onclick="changeLanguage('fr')" title="Français">🇫🇷</span>
+        <span onclick="changeLanguage('lu')" title="Lëtzebuergesch">🇱🇺</span>
+        <span onclick="changeLanguage('pl')" title="Polski">🇵🇱</span>
+        <span onclick="changeLanguage('ru')" title="Русский">🇷🇺</span>
     </div>
 
     <div class="grid">
@@ -87,7 +87,7 @@
             <h2 id="title-borders">Grens-Voordelen</h2>
             <ul>
                 <li>🚀 <span id="text-kaufland"><strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!</span></li>
-                <li>⛽ <span id="text-fuel"><strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.</span></li>
+                <li>⛽ <span id="text-fuel"><strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische i Duitse brandstofprijzen.</span></li>
             </ul>
         </div>
     </div>
@@ -105,61 +105,75 @@
 
 </div>
 
-<!-- Hier zit de magie die de talen echt laat werken -->
 <script>
 const translations = {
     nl: {
-        title: "'t Warm Broodje Limburg",
-        subtitle: '"Goede service voor een kleine prijs!"',
-        ict: "Hypermoderne ICT Services",
-        wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.",
-        minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
-        borders: "Grens-Voordelen",
-        kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!",
-        fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
-        menu: "Ons Internationale Assortiment",
-        vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment",
-        frikandel: "Warme Frikandelbroodjes & Kaiserbroodjes",
-        borscht: "Huisgemaakte traditionele Poolse & Russische Borscht",
-        vodka: "Premium Vodka en internationale dranken/snacks",
+        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een kleine prijs!"',
+        ict: "Hypermoderne ICT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.", minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
+        borders: "Grens-Voordelen", kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!", fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
+        menu: "Ons Internationale Assortiment", vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment", frikandel: "Warme Frikandelbroodjes & Kaiserbroodjes", borscht: "Huisgemaakte traditionele Poolse & Russische Borscht", vodka: "Premium Vodka en internationale dranken/snacks",
         b1: "Kleine Prijs!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!"
     },
+    be: {
+        title: "'t Warm Broodje Limburg", subtitle: '"Goede service voor een zacht prijsje!"',
+        ict: "Hypermoderne ICT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Supersnel internet voor al onze gasten.", minecraft: "<strong>Mini-Laptops</strong> - Kinderen spelen hier veilig Minecraft Survival!",
+        borders: "Grens-Voordelen", kaufland: "<strong>Kaufland Prijzen</strong> - De goedkoopste boodschappen van de regio met de gezelligheid van Jan Linders!", fuel: "<strong>Brandstof-Knaller</strong> - Tankstation met de laagste Belgische en Duitse brandstofprijzen.",
+        menu: "Ons Internationaal Assortiment", vlaai: "Echte Limburgse vlaai van Voncken & PLUS assortiment", frikandel: "Warme Frikandelkoeken & Kaiserbroodjes", borscht: "Huisgemaakte traditionele Poolse & Russische Borscht", vodka: "Premium Vodka en internationale dranken/snacks",
+        b1: "Zacht Prijsje!", b2: "Kaufland Prijs!", b3: "Lage Prijs!", b4: "Duitse Prijs!"
+    },
     de: {
-        title: "Das warme Brötchen Limburg",
-        subtitle: '"Guter Service für einen kleinen Preis!"',
-        ict: "Hypermoderne IT-Dienstleistungen",
-        wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.",
-        minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher Minecraft Survival!",
-        borders: "Grenzvorteile",
-        kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!",
-        fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
-        menu: "Unser internationales Sortiment",
-        vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment",
-        frikandel: "Warme Frikandel-Brötchen & Kaiserbrötchen",
-        borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch",
-        vodka: "Premium-Wodka und internationale Getränke/Snacks",
+        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"',
+        ict: "Hypermoderne IT-Dienstleistungen", wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.", minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher Minecraft Survival!",
+        borders: "Grenzvorteile", kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!", fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
+        menu: "Unser internationales Sortiment", vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment", frikandel: "Warme Frikandel-Brötchen & Kaiserbrötchen", borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch", vodka: "Premium-Wodka und internationale Getränke/Snacks",
+        b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!"
+    },
+    at: {
+        title: "Das warme Brötchen Limburg", subtitle: '"Guter Service für einen kleinen Preis!"',
+        ict: "Hypermoderne IT-Dienstleistungen", wifi: "<strong>Kostenloses 5-Gbps-WLAN</strong> - Superschnelles Internet für alle unsere Gäste.", minecraft: "<strong>Mini-Laptops</strong> - Kinder spielen hier sicher und gmiatlich Minecraft Survival!",
+        borders: "Grenzvorteile", kaufland: "<strong>Kaufland-Preise</strong> - Die günstigsten Lebensmitteln der Region mit der Gemütlichkeit von Jan Linders!", fuel: "<strong>Kraftstoff-Knaller</strong> - Tankstelle mit den niedrigsten belgischen und deutschen Kraftstoffpreisen.",
+        menu: "Unser internationales Sortiment", vlaai: "Echter Limburger Fladen von Voncken & PLUS Sortiment", frikandel: "Warme Frikandel-Brötchen & Kaisersemmeln", borscht: "Hausgemachter traditioneller polnischer & russischer Borschtsch", vodka: "Premium-Wodka und internationale Getränke/Snacks",
         b1: "Kleiner Preis!", b2: "Kaufland Preis!", b3: "Niedriger Preis!", b4: "Deutscher Preis!"
     },
     en: {
-        title: "The Warm Roll Limburg",
-        subtitle: '"Great service for a small price!"',
-        ict: "Hypermodern IT Services",
-        wifi: "<strong>Free 5 Gbps Wi-Fi</strong> - Superfast internet for all our guests.",
-        minecraft: "<strong>Mini-Laptops</strong> - Kids can safely play Minecraft Survival here!",
-        borders: "Border Advantages",
-        kaufland: "<strong>Kaufland Prices</strong> - The cheapest groceries in the region with the coziness of Jan Linders!",
-        fuel: "<strong>Fuel Blast</strong> - Gas station with the lowest Belgian and German fuel prices.",
-        menu: "Our International Assortment",
-        vlaai: "Authentic Limburg vlaai from Voncken & PLUS assortment",
-        frikandel: "Warm Frikandel rolls & Kaiser rolls",
-        borscht: "Homemade traditional Polish & Russian Borscht",
-        vodka: "Premium Vodka and international drinks/snacks",
+        title: "The Warm Roll Limburg", subtitle: '"Great service for a small price!"',
+        ict: "Hypermodern IT Services", wifi: "<strong>Free 5 Gbps Wi-Fi</strong> - Superfast internet for all our guests.", minecraft: "<strong>Mini-Laptops</strong> - Kids can safely play Minecraft Survival here!",
+        borders: "Border Advantages", kaufland: "<strong>Kaufland Prices</strong> - The cheapest groceries in the region with the coziness of Jan Linders!", fuel: "<strong>Fuel Blast</strong> - Gas station with the lowest Belgian and German fuel prices.",
+        menu: "Our International Assortment", vlaai: "Authentic Limburg vlaai from Voncken & PLUS assortment", frikandel: "Warm Frikandel rolls & Kaiser rolls", borscht: "Homemade traditional Polish & Russian Borscht", vodka: "Premium Vodka and international drinks/snacks",
         b1: "Small Price!", b2: "Kaufland Price!", b3: "Low Price!", b4: "German Price!"
+    },
+    fr: {
+        title: "Le Petit Pain Chaud Limbourg", subtitle: '"Bon service pour un petit prix !"',
+        ict: "Services informatiques hypermodernes", wifi: "<strong>Wi-Fi gratuit à 5 Gbps</strong> - Internet ultra-rapide pour tous nos clients.", minecraft: "<strong>Mini-Ordinateurs</strong> - Les enfants jouent ici en toute sécurité à Minecraft Survival !",
+        borders: "Avantages Frontaliers", kaufland: "<strong>Prix Kaufland</strong> - Les courses les moins chères de la région avec la convivialité de Jan Linders !", fuel: "<strong>Carburant Flash</strong> - Station-service avec les prix de carburant belges et allemands les plus bas.",
+        menu: "Notre Assortiment International", vlaai: "Authentique vlaai du Limbourg de Voncken & assortiment PLUS", frikandel: "Frikandelbroodjes chauds & Petits pains Kaiser", borscht: "Borscht polonais & russe traditionnel fait maison", vodka: "Vodka Premium et boissons/snacks internationaux",
+        b1: "Petit Prix !", b2: "Prix Kaufland !", b3: "Prix Bas !", b4: "Prix Allemand !"
+    },
+    lu: {
+        title: "Dat waarm Bréitchen Limburg", subtitle: '"Gutt Service fir e klenge Präis!"',
+        ict: "Hypermodern IT Services", wifi: "<strong>Gratis 5 Gbps Wi-Fi</strong> - Superfasten Internet fir all eis Gäscht.", minecraft: "<strong>Mini-Laptops</strong> - Kanner spillen hei sécher Minecraft Survival!",
+        borders: "Grenz-Virdeeler", kaufland: "<strong>Kaufland Präisser</strong> - Déi bëllegst Liewensmëttel an der Regioun mat der Gemittlechkeet vum Jan Linders!", fuel: "<strong>Sprit-Knaller</strong> - Tankstell mat den niddregsten belsche an däitsche Spritpräisser.",
+        menu: "Eist Internationalen Sortiment", vlaai: "Richtegen Limburger Vlaai vu Voncken & PLUS Sortiment", frikandel: "Warm Frikandelsbréitchen & Kaiserbréitchen", borscht: "Hausgemaachte traditionelle polneschen & russesche Borscht", vodka: "Premium Vodka an international Gedrénks/Snacks",
+        b1: "Klenge Präis!", b2: "Kaufland Präis!", b3: "Niddregen Präis!", b4: "Däitsche Präis!"
+    },
+    pl: {
+        title: "Ciepła Bułka Limburg", subtitle: '"Dobra obsługa za niską cenę!"',
+        ict: "Hipernowoczesne Usługi IT", wifi: "<strong>Darmowe Wi-Fi 5 Gbps</strong> - Superszybki internet dla wszystkich gości.", minecraft: "<strong>Mini-Laptopy</strong> - Dzieci grają tutaj bezpiecznie w Minecraft Survival!",
+        borders: "Korzyści Przygraniczne", kaufland: "<strong>Ceny z Kauflandu</strong> - Najtańsze zakupy w regionie w przytulnej atmosferze Jan Linders!", fuel: "<strong>Paliwowy Hit</strong> - Stacja benzynowa z najniższymi cenami paliw w Belgii i Niemczech.",
+        menu: "Nasza Międzynarodowa Oferta", vlaai: "Oryginalny limburgijski placek (vlaai) od Voncken i asortyment PLUS", frikandel: "Ciepłe Frikandelbroodjes i Kajzerki", borscht: "Domowy, tradycyjny Barszcz polski i rosyjski", vodka: "Wódka Premium oraz międzynarodowe napoje i przekąski",
+        b1: "Niska Cena!", b2: "Cena z Kauflandu!", b3: "Niska Cena!", b4: "Niemiecka Cena!"
+    },
+    ru: {
+        title: "Тёплая Булочка Лимбург", subtitle: '"Отличный сервис по низкой цене!"',
+        ict: "Сверхсовременные ИТ-услуги", wifi: "<strong>Бесплатный Wi-Fi 5 Гбит/с</strong> - Сверхскоростной интернет для всех гостей.", minecraft: "<strong>Мини-ноутбуки</strong> - Дети могут безопасно играть в Minecraft Survival!",
+        borders: "Приграничные Выгоды", kaufland: "<strong>Цены как в Kaufland</strong> - Самые дешёвые продукты в регионе с уютом Jan Linders!", fuel: "<strong>Топливный Бум</strong> - Заправка с самыми низкими ценами на бельгийское и немецкое топливо.",
+        menu: "Наш Международный Ассортимент", vlaai: "Настоящий лимбургский пирог от Voncken и ассортимент PLUS", frikandel: "Горячие слойки с сосиской (фрикандел) и кайзеровские булочки", borscht: "Домашний традиционный польский и русский Борщ", vodka: "Премиальная Водка и международные напитки/закуски",
+        b1: "Низкая Цена!", b2: "Цена как в Kaufland!", b3: "Низкая Цена!", b4: "Немецкая Цена!"
     }
 };
 
+// GEFIXT: Deze functie zoekt nu direct op de taalkoppeling in de HTML-knop, wat altijd werkt
 function changeLanguage(lang) {
-    // Verander de teksten op de pagina
     document.getElementById('main-title').innerText = translations[lang].title;
     document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
     document.getElementById('title-ict').innerText = translations[lang].ict;
@@ -178,10 +192,13 @@ function changeLanguage(lang) {
     document.getElementById('badge-3').innerText = translations[lang].b3;
     document.getElementById('badge-4').innerText = translations[lang].b4;
 
-    // Voeg het actieve streepje onder de geselecteerde vlag toe
     const flags = document.querySelectorAll('.languages span');
-    flags.forEach(f => f.classList.remove('active'));
-    event.target.classList.add('active');
+    flags.forEach(f => {
+        f.classList.remove('active');
+        if (f.getAttribute('onclick').includes(`'${lang}'`)) {
+            f.classList.add('active');
+        }
+    });
 }
 </script>
 
